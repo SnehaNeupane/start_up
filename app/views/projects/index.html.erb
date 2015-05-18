@@ -1,0 +1,40 @@
+<h1>Available Lists of Projects</h1>
+<table>
+<thead>
+<th>Title</th>
+<th>Description</th>
+<th>Abstract</th>
+<th>Bugdet</th>
+
+</thead>
+<tbody>
+
+<% @projects.each do |project| %>
+
+<tr>
+	<td><%= project.title%></td>
+	<td><%= project.abstract%></td>
+	<td><%= project.description%></td>
+	<td><%= project.budget%></td>
+
+	<td><%= link_to 'Show', project_path(project.id) %></td>
+
+	<td><%= link_to 'Edit', edit_project_path(project.id) %></td>
+	<td><%= link_to "Delete", project_path(project.id),method: 'delete', confirm: 'Are u sure u want to delete?' %></td>
+
+
+</tr>
+
+
+<% end %>
+
+</tbody>
+
+</table>
+<br>
+<td><%= link_to 'Top Hits', top_hits_projects_path %></td>
+<br>
+<br>
+<%= link_to 'Post project', new_project_path%>
+
+
